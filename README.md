@@ -43,4 +43,4 @@ Are you ready to take your learning to a HIGHER level? Are you ready to master c
 
 ![lessonscreen](https://user-images.githubusercontent.com/26694930/29237867-916586d4-7ef5-11e7-94ea-e781e92a48ed.png)
 <h3>Author</h3>
-<h4>Naeem</h4>
+<h4>J. NAEEM GITONGA</h4>
