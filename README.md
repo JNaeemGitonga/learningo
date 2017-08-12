@@ -23,7 +23,7 @@ Are you ready to take your learning to a HIGHER level? Are you ready to master c
 <h2>Getting started locally</h2><br>
 
 1.	$ mkdir <foldername> & cd <foldername>
-2.  $git https://github.com/thinkful-c11/SpeakEZ<br>
+2.  $git https://github.com/PROB8/learningo<br>
 3.	$ npm install<br>
 4.	$ npm run dev<br>
 
