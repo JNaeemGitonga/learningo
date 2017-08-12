@@ -36,13 +36,7 @@ footer{
 	width:100%;
 	background:black;
 	color: white; 
-    /* margin-top:25px; */
     font-size: 15px;
 	letter-spacing: 2px
 }
 
-@media(max-width: 720px){
-	footer{
-		/* margin-top:25px; */
-	}
-}
