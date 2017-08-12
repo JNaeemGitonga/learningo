@@ -1,0 +1,71 @@
+.lesson-box{
+    margin:auto;
+    text-align: center;
+    width: 500px;
+    height:300px;
+    margin-top:90px;
+    display: block;
+
+}
+
+.next-link {
+}
+
+#answer{
+    display:block; 
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:3px;
+    border:none;
+    text-align: center;
+    border-bottom:1px solid black;
+    outline:none; 
+    width:75%; 
+}
+
+.actual-question{
+    color:#00FFA5;
+    font-size:30px
+}
+.correct-count{
+    font-size:25px;
+    margin-top:5px;
+    margin-bottom:20px
+}
+
+.lesson-name{
+    font-size:40px
+}
+
+#hint{
+    display:block; 
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:0;
+    border:none;
+    text-align: center;
+    outline:none; 
+    width:100px;
+   
+}
+
+p.hint{
+     font-size:20px;
+     margin-top:10px;
+}
+.special-characters-heading{
+    margin-top:10px;
+    margin-bottom:0;
+}
+.special-characters{
+    font-size:20px;
+    margin-top:0;
+}
+
+#button{
+    /* float:right;
+    bottom:left; */
+    margin-top:20px;
+    margin-bottom:15px;
+    background: none;
+}

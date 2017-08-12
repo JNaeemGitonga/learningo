@@ -1,0 +1,22 @@
+#appName{
+    text-decoration:none;
+    letter-spacing:5px;
+    text-decoration: none;
+}
+.first{
+    color:#E8AC50;
+    font-size:25px;
+    letter-spacing:2px;
+}
+
+.second{
+    color:#308BFF;
+    font-size:25px;
+     letter-spacing:2px;
+}
+
+.third{
+    color:#00FFA5;
+    font-size:25px;
+     letter-spacing:2px;
+}

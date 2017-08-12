@@ -1,0 +1,66 @@
+.container-login {
+    height:100vh
+}
+.login-box {
+    margin:  15px 0 40px 10px;
+}
+.logo-box {
+    /* border: 2px solid black; */
+    text-align: center;
+    width:90%;
+    margin:auto;
+    font-family: 'Indie Flower', cursive;
+    color:white;
+
+}
+button{
+    background:none;
+}
+.about-us {
+    margin:auto;
+    text-align:center;
+}
+ul{
+    padding-left:0;
+}
+li {
+    display:inline;
+    list-style: circle;
+    text-align: center
+}
+li:before{
+    content:'\00B7';
+    padding-right:5px;
+    margin-left:5px;
+}
+h1{
+    margin-bottom:0;
+    margin-top:0;
+}
+
+#appName{
+    font-size:95px;
+}
+.about-container{
+    width:400px;
+    margin:auto;
+   
+}
+
+.aboutUs{
+     color:#FF0DFF;
+     font-size:25px;
+     letter-spacing:1px
+}
+
+.actual-question{
+    color:#00FFA5
+}
+
+.login-button{
+    color:#00FFA5
+}
+.about-heading{
+    font-size:40px;
+    margin-bottom:0
+}
