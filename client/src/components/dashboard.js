@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from './logo';
+import Pronunciations from './pronunciations';
 import './login-page.css';
 import dashboard from'./dashboard.css';
 import { Link } from 'react-router-dom';
@@ -18,6 +19,7 @@ export class DashBoard extends React.Component {
                     <button className='logout-button'>Logout</button></Link>
                 </div>
                 <Logo />
+                <Pronunciations />
                 <div className='welcome-container'>
                     <h1 className='greetings'>Peace Welcome Salaam Shalom Bienvenidos 你好</h1>
                      <p className='ready-quote'>ready to begin learning?</p>

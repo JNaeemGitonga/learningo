@@ -1,16 +1,29 @@
+
+html{
+    background: url('blackboard.jpg') no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 #root{
-    position:relative;
-    background: url('blackboard.jpg') no-repeat;background-size: cover;height:100vh;
+    /* position:relative; */
+    
 }
 
 *{
     box-sizing: border-box;
-     font-family: 'Indie Flower', cursive;
+    font-family: 'Indie Flower', cursive;
     color:white;
+    text-align: center;
 }
 
 body{
-    /* line-height: 1; */
+     line-height: 1; 
+     margin:0;
+     padding:30px;
+
 }
 footer{
     background-color: black;
@@ -22,8 +35,14 @@ footer{
 	height:30px;
 	width:100%;
 	background:black;
-	 color: white; 
-    margin-top:25px;
+	color: white; 
+    /* margin-top:25px; */
     font-size: 15px;
 	letter-spacing: 2px
+}
+
+@media(max-width: 720px){
+	footer{
+		margin-top:25px;
+	}
 }

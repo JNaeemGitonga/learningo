@@ -1,22 +1,37 @@
 #appName{
-    text-decoration:none;
     letter-spacing:5px;
     text-decoration: none;
+    width:auto;
+    padding:5px;
+    top:5px;
+    font-size:15vw;
+    margin-top: 60px;
+}
+
+.pronunciations{
+    padding:10px;
 }
 .first{
-    color:#E8AC50;
-    font-size:25px;
+    color:#308BFF;
+    
+    font-size:5vw;
     letter-spacing:2px;
 }
 
 .second{
-    color:#308BFF;
-    font-size:25px;
-     letter-spacing:2px;
+    color:#E8AC50;
+    font-size:5vw;
+    letter-spacing:2px;
 }
 
 .third{
     color:#00FFA5;
-    font-size:25px;
-     letter-spacing:2px;
+    font-size:5vw;
+    letter-spacing:2px;
+}
+
+li{
+    padding:3px;
+    margin:2px;
+    display:inline-block
 }

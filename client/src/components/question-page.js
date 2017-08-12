@@ -1,8 +1,8 @@
 import React from 'react';
 import * as Cookies from 'js-cookie';
 import {connect} from 'react-redux';
-// import Spinner from 'react-spinkit';
 import Logo from './logo';
+import Pronunciations from './pronunciations';
 import {Link} from 'react-router-dom'
 import {getLessons, getScore, postThis, logon, pickLesson} from '../actions';
 import questionpage from './question-page.css'
@@ -40,12 +40,11 @@ class QuestionPage extends React.Component {
                     <a href={'/api/auth/logout'}><button className='logout-button'>Logout</button></a>
                 </div>
                 <Logo />
+                <Pronunciations />
                 <div className='question-box' >
                     <h3 className='omega' >What would you like to practice today?</h3>
                     <div className='inner-container' style={{display:'block'}}>
                         <select className='select-box' style={{color:'black'}}onChange={(e) =>{
-                            console.log('this.props.lesson+++>',this.props.lesson)
-                            console.log('lesson plan from this.props.questions',lessonPlan)
                             this.props.dispatch(pickLesson(e.target.value))}}>
                             <option style={{listStyle:'none', color:'black'}} value="''">Choose A Lesson From Below</option>
                             {lessonPlan}

@@ -4,7 +4,6 @@
     /* border: 1px solid black; */
     /* width: 500px; */
     height:300px;
-    margin-top:100px
 }
 
 .next-link {
@@ -19,17 +18,18 @@ li{
     list-style-type: none;
 }
 .inner-container{
-    height:200px;
+    padding:10px;
+    margin-top:50px;
 }
-.logout-button{
-    margin-left:18x;
+ .logout-button{
     color:#FF0C6C;
-    
-}
+    font-size:3vw;
+} 
 
 .start-button{
     color:#00FFA5;
-    font-size:25px;
+    font-size:6vw;
+    margin:10px;
 }
 
 .omega{
@@ -37,5 +37,8 @@ li{
 }
 
 .select-box{
-    font-size:25px
+    font-size:6vw
+}
+.logout-box{
+  text-align: left;
 }

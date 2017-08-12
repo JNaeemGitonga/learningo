@@ -1,13 +1,13 @@
 .lesson-box{
     margin:auto;
     text-align: center;
-    width: 500px;
-    height:300px;
-    margin-top:90px;
     display: block;
 
 }
 
+.lesson-name{
+    color:#FF0DFF
+}
 .next-link {
 }
 
@@ -20,7 +20,7 @@
     text-align: center;
     border-bottom:1px solid black;
     outline:none; 
-    width:75%; 
+    /* width:75%;  */
 }
 
 .actual-question{
@@ -34,7 +34,8 @@
 }
 
 .lesson-name{
-    font-size:40px
+    font-size:40px;
+    margin-top:0
 }
 
 #hint{
@@ -56,6 +57,7 @@ p.hint{
 .special-characters-heading{
     margin-top:10px;
     margin-bottom:0;
+    color:#FFAB3D;
 }
 .special-characters{
     font-size:20px;

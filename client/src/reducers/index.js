@@ -48,7 +48,13 @@ export const learnReducer = (state = initialState, action) => {
         let queue;
         console.log("state.questions",state.questions)
         console.log('value passed in',action.lesson)
+
+                if (action.lesson === "''") {
+                    return
+                }  
              for (let i = 0; i < state.questions.length; i++) {
+
+               
                 if (state.questions[action.lesson] === state.questions[i] ) {
                     queue = new Queue();
                     state.questions[i].questions.forEach(question => {

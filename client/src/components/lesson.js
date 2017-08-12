@@ -35,6 +35,7 @@ class Lesson extends React.Component {
             marginBottom:'-105px'
         }
         if (this.props.questions) {
+
             lessonPlan = this.props.questions.map(lesson => lesson.language)
         }
         return (
@@ -47,7 +48,7 @@ class Lesson extends React.Component {
                     <ul className="question-list">
                          <h2 className='lesson-name'>{this.props.questions[this.props.lesson].language}</h2>
                     </ul>
-                    <h3 className='actual-question'>{question}</h3>
+                    <p className='actual-question'>{question}</p>
                     <h4 className='correct-count'>Correct Count  {this.state.correctCount}</h4>
                     <form onSubmit={(e) => {
                         e.preventDefault()
