@@ -62,7 +62,7 @@ class Lesson extends React.Component {
                             this.props.dispatch(nextQuestion()) 
                             element.value = ''
                         }
-                        else{
+                        else{ 
                         this.setState({correctCount:this.state.correctCount + 1})
                         this.props.dispatch(nextQuestion())
                         element.value = '';
