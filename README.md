@@ -23,13 +23,13 @@ Are you ready to take your learning to a HIGHER level? Are you ready to master c
 <h2>Getting started locally</h2><br>
 
 1.	$ mkdir <foldername> & cd <foldername>
-2.  $git https://github.com/thinkful-c11/SpeakEZ<br>
+2.  $git https://github.com/PROB8/learningo<br>
 3.	$ npm install<br>
 4.	$ npm run dev<br>
 
 <h2>Visit Live App</h2>
 
-1.	Visit: https://warm-plains-46364.herokuapp.com/ <br>
+1.	Visit: https://sheltered-lowlands-31144.herokuapp.com/ <br>
 
 <h2>Visual</h2>
 <h3>Login Page</h3>
