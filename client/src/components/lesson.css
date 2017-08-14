@@ -71,3 +71,7 @@ p.hint{
     margin-bottom:15px;
     background: none;
 }
+p.special{
+    display:inline;
+    font-size:3vw;
+}
