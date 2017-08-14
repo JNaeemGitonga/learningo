@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 import {startLesson, nextQuestion, enqueueIt, logon} from '../actions';
 import lesson from './lesson.css';
 import floatGrid from './float-grid.css';
+import {addUniqueA, addUniqueE, addUniqueI, addUniqueO, addUniqueU, addUniqueUU} from './functions.js'
 
 class Lesson extends React.Component {
     constructor(props){
@@ -27,6 +28,7 @@ class Lesson extends React.Component {
         this.props.dispatch(startLesson())
     }
     render() {
+        let element = document.getElementById("answer")
         let question = this.props.currentQuestion;
         let lessonPlan;
         let q = this.props.questionQueue;
@@ -37,6 +39,35 @@ class Lesson extends React.Component {
         if (this.props.questions) {
 
             lessonPlan = this.props.questions.map(lesson => lesson.language)
+        }
+        const addUniqueA = () => {
+            let x = document.getElementById('anchorA').getAttribute('target')
+            element.value = `${element.value}${x}`
+        }
+
+        const addUniqueE = () => {
+            let x = document.getElementById('anchorE').getAttribute('target')
+            element.value = `${element.value}${x}`
+        }
+
+        const addUniqueI = () => {
+            let x = document.getElementById('anchorI').getAttribute('target')
+            element.value = `${element.value}${x}`
+        }
+
+        const addUniqueO = () => {
+            let x = document.getElementById('anchorO').getAttribute('target')
+            element.value = `${element.value}${x}`
+        }
+
+        const addUniqueU = () => {
+            let x = document.getElementById('anchorU').getAttribute('target')
+            element.value = `${element.value}${x}`
+        }
+
+        const addUniqueUU = () => {
+            let x = document.getElementById('anchorUU').getAttribute('target')
+            element.value = `${element.value}${x}`
         }
         return (
             <div id='question-container'>
@@ -52,7 +83,7 @@ class Lesson extends React.Component {
                     <h4 className='correct-count'>Correct Count  {this.state.correctCount}</h4>
                     <form onSubmit={(e) => {
                         e.preventDefault()
-                        let element = document.getElementById("answer")
+                        {/* let element = document.getElementById("answer") */}
                         if (this.state.display === 'inline-block') {
                             this.state.switchDisplay()
                         }
@@ -74,7 +105,15 @@ class Lesson extends React.Component {
                     <div className='blank'></div>
                     <Link id='hint' type='text' to='#' onClick={() => this.state.switchDisplay()}>Need a hint?</Link>
                     <h2 className='special-characters-heading'>Special Characters</h2>
-                    <h5 className='special-characters' style={{fontFamily:"'Roboto', sans-serif"}}>á é í ó ú ü</h5> 
+                    <div className='special-characters' style={{fontFamily:"'Roboto', sans-serif"}}>
+                        <a href='javascript:void(0)'onClick={addUniqueA} id='anchorA' target='á'><p>á</p></a>     
+                        <a href='javascript:void(0)'onClick={addUniqueE} id='anchorE' target='é'><p>é</p></a>
+                        <a href='javascript:void(0)'onClick={addUniqueI} id='anchorI' target='í'><p>í</p></a>
+                        <a href='javascript:void(0)'onClick={addUniqueO} id='anchorO' target='ó'><p>ó</p></a>
+                        <a href='javascript:void(0)'onClick={addUniqueU} id='anchorU' target='ú'><p>ú</p></a>
+                        <a href='javascript:void(0)'onClick={addUniqueUU} id='anchorUU' target='ü'><p>ü</p></a>
+
+                    </div> 
                 </div>
             </div>
         );

@@ -1,7 +1,7 @@
 {
-  "name": "thinkful-full-stack-template-v2",
-  "version": "0.1.0",
-  "description": "A full-stack starter template",
+  "name": "learningo",
+  "version": "0.4.0",
+  "description": "a app for learning",
   "main": "index.js",
   "engine":{"node": "6.11.1", "npm":"4.2.0"},
   "scripts": {
@@ -19,7 +19,7 @@
     "server/node_modules",
     "client/node_modules"
   ],
-  "author": "Joe Turner <jturner@thinkful.com>",
+  "author": "j. naeem gitonga",
   "license": "MIT",
   "dependencies": {
     "cross-env": "^3.1.4",
