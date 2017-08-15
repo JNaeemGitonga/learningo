@@ -1,15 +1,14 @@
 
-html{
+
+
+.container{
+    height:100vh;
+    width:100vw;
     background: url('blackboard.jpg') no-repeat center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
-
-#root{
-    /* position:relative; */
-    
 }
 
 *{

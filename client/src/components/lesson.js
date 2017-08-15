@@ -80,7 +80,7 @@ class Lesson extends React.Component {
                          <h2 className='lesson-name'>{this.props.questions[this.props.lesson].language}</h2>
                     </ul>
                     <p className='actual-question'>{question}</p>
-                    <h4 className='correct-count'>Correct Count  {this.state.correctCount}</h4>
+                    <h4 className='correct-count'>Answered Correct  {this.state.correctCount}</h4>
                     <form onSubmit={(e) => {
                         e.preventDefault()
                         {/* let element = document.getElementById("answer") */}
