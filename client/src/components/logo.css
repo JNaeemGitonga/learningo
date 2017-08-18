@@ -35,3 +35,22 @@ li{
     margin:2px;
     display:inline-block
 }
+
+@media (min-width: 960px){
+   #appName{
+       margin-top:0;
+       font-size:200px;
+   }
+
+   .first{
+    font-size:60px;
+}
+
+.second{
+    font-size:60px;
+}
+
+.third{
+    font-size:60px;
+}
+}

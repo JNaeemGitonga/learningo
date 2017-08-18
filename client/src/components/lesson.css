@@ -20,7 +20,6 @@
     text-align: center;
     border-bottom:1px solid black;
     outline:none; 
-    /* width:75%;  */
 }
 
 .actual-question{
@@ -47,12 +46,14 @@
     text-align: center;
     outline:none; 
     width:100px;
+    
    
 }
 
 p.hint{
      font-size:20px;
      margin-top:10px;
+     color:#308BFF;
 }
 .special-characters-heading{
     margin-top:10px;
@@ -74,4 +75,31 @@ p.hint{
 p.special{
     display:inline;
     font-size:3vw;
+}
+@media (min-width: 720px){
+    .lesson-name{
+        font-size:5vw;
+        margin-bottom:30px;
+    }
+    .actual-question{
+        font-size:3vw;
+        margin-top:0;
+    }
+    .special-characters-heading{
+        font-size:3vw;
+    }
+    p.hint{
+        font-size:2vw;
+   }
+   #hint{
+        font-size:2vw; 
+        width:50%
+   }
+   #answer{
+        font-size: 1.6vw;
+   }
+   #button{
+        color:#00FFA5
+       
+   }
 }

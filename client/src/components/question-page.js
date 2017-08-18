@@ -35,7 +35,7 @@ class QuestionPage extends React.Component {
         }
 
         return (
-            <div id='question-container'>
+            <div id='question-container' >
                  <div className='logout-box'>
                     <a href={'/api/auth/logout'}><button className='logout-button'>Logout</button></a>
                 </div>
@@ -43,7 +43,7 @@ class QuestionPage extends React.Component {
                 <Pronunciations />
                 <div className='question-box' >
                     <h3 className='omega' >What would you like to practice today?</h3>
-                    <div className='inner-container' style={{display:'block'}}>
+                    <div className='inner-container row' style={{display:'block'}}>
                         <select className='select-box' style={{color:'black'}}onChange={(e) =>{
                             this.props.dispatch(pickLesson(e.target.value))}}>
                             <option style={{listStyle:'none', color:'black'}} value="''">Choose A Lesson From Below</option>

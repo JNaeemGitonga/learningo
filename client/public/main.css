@@ -10,6 +10,7 @@
     -o-background-size: cover;
     background-size: cover;
     padding:30px;
+    overflow:scroll;
 }
 
 *{
@@ -40,4 +41,6 @@ footer{
     letter-spacing: 2px;
     margin-top:-25px;
 }
-
+@media (min-width: 720px){
+    
+}

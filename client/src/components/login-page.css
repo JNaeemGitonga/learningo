@@ -58,3 +58,12 @@ h1{
 .come-heading{
     margin-top:40px
 }
+
+@media (min-width: 720px){
+    .login-botton{
+        font-size:25px;
+    }
+    .start-button{
+        font-size:25px;
+    }
+}

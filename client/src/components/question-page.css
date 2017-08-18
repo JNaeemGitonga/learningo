@@ -1,8 +1,6 @@
 .question-box{
     margin:auto;
     text-align: center;
-    /* border: 1px solid black; */
-    /* width: 500px; */
     height:300px;
 }
 
@@ -41,4 +39,27 @@ li{
 }
 .logout-box{
   text-align: left;
+}
+
+@media (min-width: 460px){
+    .select-box{
+        font-size:25px;
+    }
+    .start-button{
+        font-size:25px;
+    }
+}
+
+@media (min-width: 720px){
+    .logout-button{
+        font-size:25px;
+    }
+
+    
+    
+}
+@media (max-width: 460px){
+    .select-box{
+        width:100%
+    }
 }

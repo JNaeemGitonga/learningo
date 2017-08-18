@@ -1,13 +1,13 @@
 {
-  "name": "thinkful-full-stack-template-server",
-  "version": "1.0.0",
-  "description": "Server portion of a full-stack starter template",
+  "name": "learningo",
+  "version": "0.5.0",
+  "description": "server for learningo",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
   },
   "engine":{"node": "6.11.1", "npm":"4.2.0"},
-  "author": "Joe Turner <jturner@thinkful.com>",
+  "author": "J. Naeem Gitonga <blackb8r@gmail.com>",
   "devDependencies": {
     "nodemon": "^1.11.0"
   },
