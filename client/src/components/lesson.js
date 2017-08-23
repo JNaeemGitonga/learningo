@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom'
 import {startLesson, nextQuestion, enqueueIt, logon} from '../actions';
 import lesson from './lesson.css';
 import floatGrid from './float-grid.css';
-import {addUniqueA, addUniqueE, addUniqueI, addUniqueO, addUniqueU, addUniqueUU} from './functions.js'
 
 class Lesson extends React.Component {
     constructor(props){

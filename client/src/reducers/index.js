@@ -6,7 +6,6 @@ const initialState = {
     questions:[],
     nextQuestion:null,
     score:null,
-    loading:false,
     questionQueue: null,
     answer:null,
     translation:null,
@@ -16,7 +15,6 @@ const initialState = {
 
 export const learnReducer = (state = initialState, action) => {
     switch (action.type) {
-        
         case 'GET_SCORE_REQUEST':
             return Object.assign({}, state, {
                 error:null,
@@ -36,25 +34,12 @@ export const learnReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 currentUser:action.currentUser
             })
-        case 'LOGON_REQUEST':
-            return Object.assign({}, state, {
-                loading:true
-            })
-        case 'LOGON_SUCCESS':
-            return Object.assign({}, state, {
-                loading:false
-            })
         case 'PICK_LESSON':
         let queue;
-        console.log("state.questions",state.questions)
-        console.log('value passed in',action.lesson)
-
                 if (action.lesson === "''") {
                     return
                 }  
              for (let i = 0; i < state.questions.length; i++) {
-
-               
                 if (state.questions[action.lesson] === state.questions[i] ) {
                     queue = new Queue();
                     state.questions[i].questions.forEach(question => {
@@ -66,12 +51,9 @@ export const learnReducer = (state = initialState, action) => {
             return Object.assign({}, state,{
                 lesson:action.lesson,
                 questionQueue: queue,
-
             })
-            
         case 'REQUEST_LESSON':
             return Object.assign ({}, state, {
-
             })
         case 'REQUEST_LESSON_SUCCESS':
             return Object.assign({}, state, {
@@ -92,7 +74,6 @@ export const learnReducer = (state = initialState, action) => {
             })
         case 'NEXT_QUESTION':
             let nextQuestion;
-           
             if (state.questionQueue != undefined) {
                  nextQuestion = state.questionQueue.dequeue();
                 if (nextQuestion === undefined){
@@ -101,14 +82,12 @@ export const learnReducer = (state = initialState, action) => {
                         Click the logo to start again.`
                     })
                 }
-                console.log(nextQuestion)
                 return Object.assign({}, state, {
                     currentQuestion:nextQuestion.question,
                     translation:nextQuestion.translation,
                     answer:nextQuestion.answer
                 })   
             }
-            
         case 'ENQUEUE_IT':
             let newQueue;
             let data = {
@@ -117,18 +96,14 @@ export const learnReducer = (state = initialState, action) => {
                 answer:state.answer
             };
             console.log('this is q', action.q)
-            // action.q.dequeue()
             action.q.enqueue(data)
             newQueue = action.q
             console.log(newQueue)
-            //problem moving data around.
             return Object.assign({}, state, {
                questionQueue:newQueue 
             })
-
         default:
             return state
     }
 }
-
 export default learnReducer;

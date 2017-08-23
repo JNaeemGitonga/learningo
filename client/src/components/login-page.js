@@ -3,9 +3,6 @@ import './login-page.css';
 import Logo from './logo';
 import Pronunciations from './pronunciations';
 import {connect} from 'react-redux';
-import { bindActionCreators } from 'redux'
-import {logon, getLessons} from '../actions'
-import * as actions from '../actions'
 
 export class LoginPage extends React.Component {
     render() {

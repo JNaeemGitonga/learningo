@@ -8,5 +8,5 @@ exports.DATABASE_URL = process.env.DATABASE_URL ||
 
 exports.TEST_DATABASE_URL = process.env.TEST_DATABASE_URL ||
                        global.TEST_DATABASE_URL 
-                    //   'mongodb://localhost/test-frenchatize-app';
+                    //   'mongodb://localhost/test-speakez';
 exports.PORT = process.env.PORT ||8080;

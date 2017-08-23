@@ -24,7 +24,6 @@ const userSchema = mongoose.Schema({
   accessToken: {type: String},
   name: {type: String},
   score: Number
-  //questions
 });
 
 userSchema.methods.apiRepr = function() {

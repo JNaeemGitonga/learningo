@@ -1,3 +1,4 @@
+'use strict';
 const path = require('path');
 const express = require('express');
 const passport = require('passport');
@@ -34,7 +35,7 @@ passport.use(
       let user;
       User
         .findOne({googleId: profile.id})
-        .exec()
+        // .exec()
         .then(_user => {
           user = _user;
           if(!user) {
@@ -58,9 +59,7 @@ passport.use(
 
 passport.use(
     new BearerStrategy((token, done) => {
-            // Job 3: Update this callback to try to find a user with a
-            // matching access token.  If they exist, let em in, if not,
-            // don't.
+      console.log('look bearer', token)
       User
         .find({accessToken: token})
         .exec()
@@ -79,8 +78,7 @@ app.get('/api/auth/google',
 
 app.get('/api/auth/google/callback',
   passport.authenticate('google', {
-    failureRedirect: '/',
-    session: false
+    failureRedirect: '/'
   }),
   (req, res) => {
     res.cookie('accessToken', req.user.accessToken, {expires: 0});

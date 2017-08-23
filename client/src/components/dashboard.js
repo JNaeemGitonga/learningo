@@ -12,8 +12,6 @@ export class DashBoard extends React.Component {
         return (
 
             <div className='dashboard-container'>
-
-
                 <div className='logout-box'>
                     <Link to={'/api/auth/logout'}>
                     <button className='logout-button'>Logout</button></Link>
