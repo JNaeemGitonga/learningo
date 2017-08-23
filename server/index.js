@@ -138,7 +138,6 @@ app.put('/api/score',
   }
 );
 
-// Serve the built client
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 // Unhandled requests which aren't for the API should serve index.html so
@@ -160,7 +159,8 @@ function runServer(databaseUrl=DATABASE_URL, port=3001) {
       server = app.listen(port, () => {
         console.log(`Your app is listening on port ${port}`);
         resolve();
-      }).on('error', err => {
+      })
+      .on('error', err => {
         mongoose.disconnect();
         reject(err);
       });
