@@ -1,12 +1,11 @@
 import React from 'react';
-import * as Cookies from 'js-cookie';
 import {connect} from 'react-redux';
 import Logo from './logo';
 import Pronunciations from './pronunciations';
-import {Link} from 'react-router-dom'
-import {getLessons, getScore, postThis, logon, pickLesson} from '../actions';
-import questionpage from './question-page.css'
-import floatGrid from './float-grid.css';
+import {Link} from 'react-router-dom';
+import {getLessons, logon, pickLesson} from '../actions';
+import './question-page.css';
+import './float-grid.css';
 
 class QuestionPage extends React.Component {
     constructor(props){
@@ -17,21 +16,17 @@ class QuestionPage extends React.Component {
     }
 
     componentDidMount() {
-       
-            this.props.dispatch(logon())
-            this.props.dispatch(getLessons())
+        this.props.dispatch(logon())
+        this.props.dispatch(getLessons())
     }
         
 
     render() {
-        // let lesson;
         let questions ;
         let lessonPlan;
         if (this.props.questions) {
             lessonPlan = this.props.questions.map((lesson,index) =>  <option onSelect={(e) => console.log('loook',e.target.value)}key={lesson.language} 
                 value={index} className='lesson' style={{ color:'black'}}>{lesson.language}</option>)
-            // 
-            //lesson.language
         }
 
         return (
@@ -71,5 +66,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-// export default QuestionPage;
 export default connect(mapStateToProps)(QuestionPage)

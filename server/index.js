@@ -24,6 +24,13 @@ const app = express();
 
 app.use(passport.initialize());
 app.use(bodyParser.json());
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+}); 
 
 passport.use(
     new GoogleStrategy({
@@ -59,7 +66,6 @@ passport.use(
 
 passport.use(
     new BearerStrategy((token, done) => {
-      console.log('look bearer', token)
       User
         .find({accessToken: token})
         .exec()
@@ -86,8 +92,7 @@ app.get('/api/auth/google/callback',
   }
 );
 
-app.get('/api/auth/logout', (req, res) => {
-  req.logout();
+app.get('/api/auth/logout', (req, res) => { 
   res.clearCookie('accessToken');
   res.redirect('/');
 });

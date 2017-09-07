@@ -1,13 +1,11 @@
 import React from 'react';
-import * as Cookies from 'js-cookie';
 import {connect} from 'react-redux';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-// import { Link } from 'react-router-dom';
 import QuestionPage from './question-page';
 import LoginPage from './login-page';
 import DashBoard from './dashboard';
 import Lesson from './lesson';
-import {logon, getLessons} from '../actions'
+import {logon} from '../actions'
 
 
 export class App extends React.Component {

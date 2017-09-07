@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import Logo from './logo';
 import {Link} from 'react-router-dom'
 import {startLesson, nextQuestion, enqueueIt, logon} from '../actions';
-import lesson from './lesson.css';
-import floatGrid from './float-grid.css';
+import './lesson.css';
+import './float-grid.css';
 
 class Lesson extends React.Component {
     constructor(props){
@@ -82,7 +82,6 @@ class Lesson extends React.Component {
                     <h4 className='correct-count'>Answered Correct  {this.state.correctCount}</h4>
                     <form onSubmit={(e) => {
                         e.preventDefault()
-                        {/* let element = document.getElementById("answer") */}
                         if (this.state.display === 'inline-block') {
                             this.state.switchDisplay()
                         }

@@ -1,6 +1,5 @@
 import request from "superagent";
 import * as Cookies from 'js-cookie';
-import Queue from '../queue';
 
 export const REQUEST_LESSON = 'REQUEST_LESSON';
 export const requestLesson = () => ({
@@ -113,7 +112,7 @@ export const getCurrentUser = () => dispatch => {
     }
 }
 
-export const updateScore = (score,id) => dispatch => {
+export const updateScore = (score,id) => dispatch => { 
     const accessToken = Cookies.get('accessToken');
     let body = {score:score, id:id}
         return fetch('/api/score', {

@@ -1,9 +1,8 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
 import {connect} from 'react-redux';
 import './login-page.css';
 import './float-grid.css';
-import logocss from './logo.css';
+import './logo.css';
 
 export class Pronunciations extends React.Component  {
     render() {
