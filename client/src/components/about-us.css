@@ -1,0 +1,20 @@
+.aboutUs {
+    font-family: 'Encode Sans Expanded', sans-serif;
+    color:#FF0DFF;
+    font-size:4vw;
+    letter-spacing:1px
+}
+
+ul.aboutUs {
+    margin:auto;
+    width:70%;
+    line-height:1.2;
+}
+
+@media only screen and (min-width: 605px) {
+    .aboutUs {
+        font-size:30px
+    }
+
+
+}

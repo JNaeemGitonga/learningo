@@ -37,6 +37,7 @@ class QuestionPage extends React.Component {
                 <Logo />
                 <Pronunciations />
                 <div className='question-box' >
+                <h1 className='greetings'>Peace Welcome Salaam Shalom Bienvenidos 你好</h1>
                     <h3 className='omega' >What would you like to practice today?</h3>
                     <div className='inner-container row' style={{display:'block'}}>
                         <select className='select-box' style={{color:'black'}}onChange={(e) =>{

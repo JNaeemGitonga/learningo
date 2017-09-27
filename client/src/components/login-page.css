@@ -1,6 +1,7 @@
 
 .login-box {
     text-align:left;
+    font-size:3vw;
 }
 
 button{
@@ -36,7 +37,6 @@ h1{
 
 .aboutUs{
      color:#FF0DFF;
-     font-size:25px;
      letter-spacing:1px
 }
 
@@ -58,10 +58,16 @@ h1{
 }
 
 @media (min-width: 720px){
-    .login-botton{
+    .login-button {
         font-size:25px;
     }
     .start-button{
         font-size:25px;
+    }
+}
+
+@media(min-width:1020px) {
+    .login-botton{
+        font-size:2vw;
     }
 }

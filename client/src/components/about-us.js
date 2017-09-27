@@ -3,6 +3,7 @@ import './login-page.css';
 import Logo from './logo';
 import Pronunciations from './pronunciations';
 import {connect} from 'react-redux';
+import './about-us.css';
 
 export class AboutUs extends React.Component {
     
@@ -12,13 +13,15 @@ export class AboutUs extends React.Component {
             <div className='about-us'>
                 <h2 className='about-heading'>About Us...</h2>
                 <div className='about-container'>
-                    <p className='aboutUs'>Practice, practice, practice! Inside you'll find 
+                    <ul className='aboutUs'>
+                        <li className='aboutUs'>Practice, practice, practice!</li>
+                        <li className='aboutUs'>Inside you'll find 
                         subjects to practice and if you don't find one you need, soon
-                        you will be able to create your own lesson! Login with Google, and
-                        choose a subject to begin!
-                        </p>
-                    </div>
+                        you will be able to create your own lesson!</li>
+                        <li className='aboutUs'>Login and choose a subject to begin!</li>
+                    </ul>
                 </div>
+            </div>
         )
     }
 }
