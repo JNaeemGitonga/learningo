@@ -41,7 +41,7 @@ class QuestionPage extends React.Component {
                     <div className='inner-container row' style={{display:'block'}}>
                         <select className='select-box' style={{color:'black'}}onChange={(e) =>{
                             this.props.dispatch(pickLesson(e.target.value))}}>
-                            <option style={{listStyle:'none', color:'black'}} value="''">Choose A Lesson From Below</option>
+                            <option style={{listStyle:'none', color:'black'}} value="''">Choose Lesson Below</option>
                             {lessonPlan}
                         </select>
                         <Link to='/lesson' ><button className='start-button' >Start</button></Link>
