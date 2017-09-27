@@ -104,12 +104,12 @@ class Lesson extends React.Component {
                     <Link id='hint' type='text' to='#' onClick={() => this.state.switchDisplay()}>Need a hint?</Link>
                     <h2 className='special-characters-heading'>Special Characters</h2>
                     <div className='special-characters' style={{fontFamily:"'Roboto', sans-serif"}}>
-                        <a href='javascript:void(0)'onClick={addUniqueA} id='anchorA' target='á'><p className='special'>á</p></a> <p className='special'></p>    
-                        <a href='javascript:void(0)'onClick={addUniqueE} id='anchorE' target='é'><p className='special'>é</p></a> <p className='special'></p>
-                        <a href='javascript:void(0)'onClick={addUniqueI} id='anchorI' target='í'><p className='special'>í</p></a> <p className='special'></p> 
-                        <a href='javascript:void(0)'onClick={addUniqueO} id='anchorO' target='ó'><p className='special'>ó</p></a> <p className='special'></p>
-                        <a href='javascript:void(0)'onClick={addUniqueU} id='anchorU' target='ú'><p className='special'>ú</p></a> <p className='special'></p>
-                        <a href='javascript:void(0)'onClick={addUniqueUU} id='anchorUU' target='ü'><p className='special'>ü</p></a> <p className='special'></p>
+                        <span className='link' onClick={addUniqueA} id='anchorA' target='á'><p className='special'>á</p></span> <p className='special'></p>    
+                        <span className='link' onClick={addUniqueE} id='anchorE' target='é'><p className='special'>é</p></span> <p className='special'></p>
+                        <span className='link' onClick={addUniqueI} id='anchorI' target='í'><p className='special'>í</p></span> <p className='special'></p> 
+                        <span className='link' onClick={addUniqueO} id='anchorO' target='ó'><p className='special'>ó</p></span> <p className='special'></p>
+                        <span className='link' onClick={addUniqueU} id='anchorU' target='ú'><p className='special'>ú</p></span> <p className='special'></p>
+                        <span className='link' onClick={addUniqueUU} id='anchorUU' target='ü'><p className='special'>ü</p></span> <p className='special'></p>
 
                     </div> 
                 </div>
