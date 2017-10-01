@@ -1,6 +1,8 @@
 'use strict';
 
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+
 const questionsSchema = mongoose.Schema({
   language: {type:String},
   questions: {type:Array, ref:'ActualQuestions' },
@@ -20,10 +22,13 @@ questionsSchema.methods.apiRepr = function() {
 };
 
 const userSchema = mongoose.Schema({
-  googleId: {type: String, required: true},
+  googleId: {type: String},
   accessToken: {type: String},
   name: {type: String},
-  score: Number
+  username:{type:String},
+  password: {type:String },
+  firstName: {type:String},
+  lastName: {type:String}
 });
 
 userSchema.methods.apiRepr = function() {
@@ -31,11 +36,18 @@ userSchema.methods.apiRepr = function() {
     id: this._id,
     googleId: this.googleId,
     name: this.name,
-    score: this.score
+    username: this.username,
+    password:{type:String}
   };
 };
 
-
+userSchema.methods.validatePassword = function(password) {
+    return bcrypt.compare(password, this.password);
+}
+  
+userSchema.statics.hashPassword = function(password) {
+    return bcrypt.hash(password, 10);
+}
 
 const User = mongoose.model('User', userSchema);
 const Question = mongoose.model('Question', questionsSchema);

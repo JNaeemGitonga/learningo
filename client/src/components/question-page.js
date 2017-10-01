@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Logo from './logo';
-import Pronunciations from './pronunciations';
 import {Link} from 'react-router-dom';
 import {getLessons, logon, pickLesson} from '../actions';
+import {setJWT} from '../actions/index2'
 import './question-page.css';
 import './float-grid.css';
 
@@ -16,13 +16,11 @@ class QuestionPage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(logon())
-        this.props.dispatch(getLessons())
+        this.props.dispatch(getLessons(this.props.jwt.authToken))
     }
         
 
     render() {
-        let questions ;
         let lessonPlan;
         if (this.props.questions) {
             lessonPlan = this.props.questions.map((lesson,index) =>  <option onSelect={(e) => console.log('loook',e.target.value)}key={lesson.language} 
@@ -31,13 +29,14 @@ class QuestionPage extends React.Component {
 
         return (
             <div id='question-container' >
-                 <div className='logout-box'>
-                    <a href={'/api/auth/logout'}><button className='logout-button'>Logout</button></a>
+                 <div className='logout-box'> 
+                    <Link to='/'><button className='logout-button' onClick={()=>{
+                        this.props.dispatch(setJWT(null))    
+                    }}>Logout</button></Link>
                 </div>
                 <Logo />
-                <Pronunciations />
                 <div className='question-box' >
-                <h1 className='greetings'>Peace Welcome Salaam Shalom Bienvenidos 你好</h1>
+               
                     <h3 className='omega' >What would you like to practice today?</h3>
                     <div className='inner-container row' style={{display:'block'}}>
                         <select className='select-box' style={{color:'black'}}onChange={(e) =>{
@@ -45,7 +44,7 @@ class QuestionPage extends React.Component {
                             <option style={{listStyle:'none', color:'black'}} value="''">Choose Lesson Below</option>
                             {lessonPlan}
                         </select>
-                        <Link to='/lesson' ><button className='start-button' >Start</button></Link>
+                        <Link to={`/${this.props.userId}/lesson`} ><button className='start-button' >Start</button></Link>
                         
                     </div>    
                 </div>
@@ -55,13 +54,9 @@ class QuestionPage extends React.Component {
 }
 const mapStateToProps = (state) => {
     return {
-        questions: state.questions,
-        score:state.score,
-        loading:state.loading,
-        currentUser:state.currentUser,
-        lesson:state.lesson,
-        questionQueue:state.questionQueue
-
+        userId:state.twoReducer.userId,
+        jwt:state.learnReducer.jwt,
+        questions:state.learnReducer.questions
 
 
     }

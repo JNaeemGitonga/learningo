@@ -4,6 +4,8 @@ import Logo from './logo';
 import Pronunciations from './pronunciations';
 import {connect} from 'react-redux';
 import AboutUs from './about-us';
+import LoginBox from './login-box';
+import {Link} from 'react-router-dom';
 
 export class LoginPage extends React.Component {
   
@@ -11,12 +13,12 @@ export class LoginPage extends React.Component {
         return (
             <div className='container-login'>
                 <div className='login-box'>
-                    <a href={'/api/auth/google'}><button className='login-button'>Login with Google</button></a>
                 </div>
                     <Logo />
                     <Pronunciations />
                     <AboutUs />
                     <h2 className='come-heading'>COME LEARN WITH US!</h2>
+                    <LoginBox />
             </div>
         )
     }

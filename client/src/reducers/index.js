@@ -1,5 +1,7 @@
 import Queue from '../queue';
+
 const initialState = {
+    
     currentUser: null,
     currentQuestion:undefined,
     lesson:null,
@@ -9,7 +11,8 @@ const initialState = {
     questionQueue: null,
     answer:null,
     translation:null,
-    clicked:false
+    clicked:false,
+    jwt:null
 
 }
 
@@ -99,6 +102,11 @@ export const learnReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                questionQueue:newQueue 
             })
+
+        case 'SET_JWT':
+            return Object.assign({}, state, {
+                jwt:action.jwt
+            })    
         default:
             return state
     }

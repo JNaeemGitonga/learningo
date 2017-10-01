@@ -1,7 +1,5 @@
 import React from 'react';
 import './login-page.css';
-import Logo from './logo';
-import Pronunciations from './pronunciations';
 import {connect} from 'react-redux';
 import './about-us.css';
 
@@ -18,7 +16,7 @@ export class AboutUs extends React.Component {
                         <li className='aboutUs'>Inside you'll find 
                         subjects to practice and if you don't find one you need, soon
                         you will be able to create your own lesson!</li>
-                        <li className='aboutUs'>Login and choose a subject to begin!</li>
+                        <li className='aboutUs'>Try our Demo, Sign Up, or Login and choose a subject to begin!</li>
                     </ul>
                 </div>
             </div>

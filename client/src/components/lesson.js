@@ -23,7 +23,6 @@ class Lesson extends React.Component {
         }
     }
     componentDidMount() {
-        this.props.dispatch(logon())
         this.props.dispatch(startLesson())
     }
     render() {
@@ -119,12 +118,12 @@ class Lesson extends React.Component {
 }
 const mapStateToProps = (state) => {
     return {
-        questions: state.questions,
-        lesson:state.lesson,
-        currentQuestion:state.currentQuestion,
-        questionQueue:state.questionQueue,
-        translation:state.translation,
-        answer:state.answer
+        questions: state.learnReducer.questions,
+        lesson:state.learnReducer.lesson,
+        currentQuestion:state.learnReducer.currentQuestion,
+        questionQueue:state.learnReducer.questionQueue,
+        translation:state.learnReducer.translation,
+        answer:state.learnReducer.answer
 
     }
 }

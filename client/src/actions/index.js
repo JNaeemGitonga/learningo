@@ -1,5 +1,6 @@
 import request from "superagent";
 import * as Cookies from 'js-cookie';
+import {push} from 'react-router-redux';
 
 export const REQUEST_LESSON = 'REQUEST_LESSON';
 export const requestLesson = () => ({
@@ -64,26 +65,24 @@ export const getUser = currentUser => ({
     currentUser
 })
 
-export const getLessons = () => dispatch => {
-    const accessToken = Cookies.get('accessToken');
+export const getLessons = (jwt) => dispatch => {
     dispatch(requestLesson())
     request
         .get('/api/speakez')
-        .set({'Authorization':`Bearer ${accessToken}`})
+        .set({'Authorization':`Bearer ${jwt}`})
         .then(res =>{
           dispatch(requestLessonSuccess(res.body))
         })
         .catch(err => dispatch(requestLessonError(err)))
 }
 
-export const postThis = () => dispatch => {
-    const accessToken = Cookies.get('accessToken');
+export const postThis = (jwt) => dispatch => {
     let obj;
     return fetch('/api/speakez',{
     method: 'POST',
     headers: {
       "Content-Type": 'application/json',
-      'Authorization':`Bearer ${accessToken}`
+      'Authorization':`Bearer ${jwt}`
     },
     body: JSON.stringify(obj)
   })
@@ -123,12 +122,13 @@ export const updateScore = (score,id) => dispatch => {
         .then(res => console.log("This is what i want to look at: ", res));
 }
 
-export const logon = () => dispatch =>{
+export const logon = () => dispatch => {
      const accessToken = Cookies.get('accessToken');
      fetch('/api/me', {
         headers: {
             'Authorization': `Bearer ${accessToken}`
         }
+
     }).then(res => {
         if (!res.ok) {
             if (res.status === 401) {
@@ -137,12 +137,15 @@ export const logon = () => dispatch =>{
             }
             throw new Error(res.statusText);
         }
-        return res.json();
+        return dispatch(push('/dashboard'))
     }).then(currentUser => {
+        // 
+
         dispatch(getUser(currentUser))
         dispatch(logonRequest())}
     )
-    .then(() => dispatch(logonSuccess()));
+    .then(() =>{
+        dispatch(logonSuccess())});
 }
 
 export const PICK_LESSON = 'PICK_LESSON';

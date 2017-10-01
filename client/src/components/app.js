@@ -1,11 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
+import {ConnectedRouter as Router} from 'react-router-redux'
 import QuestionPage from './question-page';
 import LoginPage from './login-page';
 import DashBoard from './dashboard';
 import Lesson from './lesson';
-import {logon} from '../actions'
+import SignUpBox from './sign-up-box';
+import {logon} from '../actions';
+import {history} from '../store';
 
 
 export class App extends React.Component {
@@ -15,21 +18,18 @@ export class App extends React.Component {
             currentUser: null
         };
     }
-    componentDidMount() {
-    this.props.dispatch(logon())
-      
-    }
+    
     render() {
-        if (!this.props.currentUser) {
-            return <LoginPage />;
-        }
+        
         return (
-            <Router>
+            <Router history={history}>
                 <div className='app'>
                     <main>
-                        <Route  exact path='/' component={DashBoard}  />
-                        <Route  exact path='/questions' component={QuestionPage}/>
-                        <Route  exact path='/lesson' component={Lesson}/>
+                        <Route exact path='/' component={LoginPage} />
+                        <Route exact path='/signup' component={SignUpBox} />
+                        <Route  exact path='/home/:userId' component={DashBoard}  />
+                        <Route  exact path='/:userId/questions' component={QuestionPage}/>
+                        <Route  exact path='/:userId/lesson' component={Lesson}/>
                     </main>
                 </div>
             </Router>
@@ -38,9 +38,9 @@ export class App extends React.Component {
 }
 const mapStateToProps = state => {
     return {
-        currentUser:state.currentUser,
-        questions:state.questions,
-        score:state.score
-    }
+        currentUser:state.learnReducer.currentUser,
+        questions:state.learnReducer.questions,
+        jwt:state.learnReducer.jwt
+    } 
 }
 export default connect(mapStateToProps)(App)

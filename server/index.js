@@ -2,12 +2,17 @@
 const path = require('path');
 const express = require('express');
 const passport = require('passport');
+const app = express();
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
 const BearerStrategy = require('passport-http-bearer').Strategy;
 const mongoose = require('mongoose');
 const {User, Question} = require('./models');
 const {DATABASE_URL, PORT} = require('./config');
+const {router: usersRouter} = require('./users');
+const {router: authRouter, basicStrategy, jwtStrategy} = require('./auth');
+const {JWT_SECRET} = require('./secret');
 mongoose.Promise = global.Promise;
 
 
@@ -20,9 +25,9 @@ if(process.env.NODE_ENV !== 'production') {
   secret = require('./secret');
 }
 
-const app = express();
 
-app.use(passport.initialize());
+
+
 app.use(bodyParser.json());
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -30,8 +35,26 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(user, done) {
   done(null, user);
+});
+
+app.use(expressValidator()); 
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+  if (req.method === 'OPTIONS') {
+    return res.send(204);
+  }
+  next();
 }); 
 
+app.use(passport.initialize());
+passport.use(basicStrategy); 
+passport.use(jwtStrategy);
+
+app.use('/api/learningo/users', usersRouter);
+app.use('/api/learningo/auth', authRouter);
+  
 passport.use(
     new GoogleStrategy({
       clientID:  secret.CLIENT_ID,
@@ -50,7 +73,6 @@ passport.use(
               name: profile.name.givenName,
               googleId: profile.id,
               accessToken: accessToken,
-              score: 0
             });
           }
           return User
@@ -103,7 +125,7 @@ app.get('/api/me',
 );
 
 app.get('/api/speakez',
-  passport.authenticate('bearer', {session: false}),
+  passport.authenticate('jwt', {session: false}),
   (req, res) =>  {
     Question
     .find()
@@ -120,7 +142,7 @@ app.get('/api/speakez',
 );
 
 app.post('/api/speakez',
-  passport.authenticate('bearer', {session: false}),
+  passport.authenticate('jwt', {session: false}),
   (req, res) => {
     Question
     .create({language:req.body.language, questions:req.body.questions})
