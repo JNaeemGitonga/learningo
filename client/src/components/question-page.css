@@ -63,3 +63,9 @@ li{
         width:100%
     }
 }
+
+@media (min-width: 980px) {
+    .question-box {
+        margin-top:50px;
+    }
+}

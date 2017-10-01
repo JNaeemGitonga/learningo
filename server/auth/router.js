@@ -23,7 +23,6 @@ router.post('/login',
 			username:req.body.username
 		})
 		.then(user => {
-			// console.log('look a user',user, "LOOK req.body", req.body)	
 			if (user){
 				let obj = { 
 					authToken,
