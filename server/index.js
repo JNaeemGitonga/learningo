@@ -9,21 +9,21 @@ const expressValidator = require('express-validator');
 const BearerStrategy = require('passport-http-bearer').Strategy;
 const mongoose = require('mongoose');
 const {User, Question} = require('./models');
-const {DATABASE_URL, PORT} = require('./config');
+const {DATABASE_URL, PORT,JWT_SECRET} = require('./config');
 const {router: usersRouter} = require('./users');
 const {router: authRouter, basicStrategy, jwtStrategy} = require('./auth');
-const {JWT_SECRET} = require('./secret');
+// const {JWT_SECRET} = require('./secret');
 mongoose.Promise = global.Promise;
 
 
-let secret = {
-  CLIENT_ID: process.env.CLIENT_ID,
-  CLIENT_SECRET: process.env.CLIENT_SECRET
-};
+// let secret = {
+//   CLIENT_ID: process.env.CLIENT_ID,
+//   CLIENT_SECRET: process.env.CLIENT_SECRET
+// };
 
-if(process.env.NODE_ENV !== 'production') {
-  secret = require('./secret');
-}
+// if(process.env.NODE_ENV !== 'production') {
+//   secret = require('./secret');
+// }
 
 
 
@@ -55,74 +55,74 @@ passport.use(jwtStrategy);
 app.use('/api/learningo/users', usersRouter);
 app.use('/api/learningo/auth', authRouter);
   
-passport.use(
-    new GoogleStrategy({
-      clientID:  secret.CLIENT_ID,
-      clientSecret: secret.CLIENT_SECRET,
-      callbackURL: '/api/auth/google/callback'
-    }, 
-    (accessToken, refreshToken, profile, cb) => {
-      let user;
-      User
-        .findOne({googleId: profile.id})
-        // .exec()
-        .then(_user => {
-          user = _user;
-          if(!user) {
-            return User.create({
-              name: profile.name.givenName,
-              googleId: profile.id,
-              accessToken: accessToken,
-            });
-          }
-          return User
-            .findByIdAndUpdate(user.id, {accessToken: accessToken},{new: true})
-            .exec();
-        })
-        .then(user => {
-          return cb(null, user);
-        })
-        .catch(err => console.log('error'));
-    }
-));
+// passport.use(
+//     new GoogleStrategy({
+//       clientID:  secret.CLIENT_ID,
+//       clientSecret: secret.CLIENT_SECRET,
+//       callbackURL: '/api/auth/google/callback'
+//     }, 
+//     (accessToken, refreshToken, profile, cb) => {
+//       let user;
+//       User
+//         .findOne({googleId: profile.id})
+//         // .exec()
+//         .then(_user => {
+//           user = _user;
+//           if(!user) {
+//             return User.create({
+//               name: profile.name.givenName,
+//               googleId: profile.id,
+//               accessToken: accessToken,
+//             });
+//           }
+//           return User
+//             .findByIdAndUpdate(user.id, {accessToken: accessToken},{new: true})
+//             .exec();
+//         })
+//         .then(user => {
+//           return cb(null, user);
+//         })
+//         .catch(err => console.log('error'));
+//     }
+// ));
 
-passport.use(
-    new BearerStrategy((token, done) => {
-      User
-        .find({accessToken: token})
-        .exec()
-        .then(user => {
-          if (!user) {
-            return done(null, false);
-          }
-          return done(null, user[0]);
-        })
-        .catch(err => console.log(err));
-    })
-);
+// passport.use(
+//     new BearerStrategy((token, done) => {
+//       User
+//         .find({accessToken: token})
+//         .exec()
+//         .then(user => {
+//           if (!user) {
+//             return done(null, false);
+//           }
+//           return done(null, user[0]);
+//         })
+//         .catch(err => console.log(err));
+//     })
+// );
 
-app.get('/api/auth/google',
-  passport.authenticate('google', {scope: ['profile']}));
+// app.get('/api/auth/google',
+//   passport.authenticate('google', {scope: ['profile']}));
 
-app.get('/api/auth/google/callback',
-  passport.authenticate('google', {
-    failureRedirect: '/'
-  }),
-  (req, res) => {
-    res.cookie('accessToken', req.user.accessToken, {expires: 0});
-    res.redirect('/');
-  }
-);
+// app.get('/api/auth/google/callback',
+//   passport.authenticate('google', {
+//     failureRedirect: '/'
+//   }),
+//   (req, res) => {
+//     res.cookie('accessToken', req.user.accessToken, {expires: 0});
+//     res.redirect('/');
+//   }
+// );
 
-app.get('/api/auth/logout', (req, res) => { 
-  res.clearCookie('accessToken');
-  res.redirect('/');
-});
+// app.get('/api/auth/logout', (req, res) => { 
+//   res.clearCookie('accessToken');
+//   res.redirect('/');
+// });
 
-app.get('/api/me',
-  passport.authenticate('bearer', {session: false}),
-  (req, res) => res.json(req.user.apiRepr())
-);
+// app.get('/api/me',
+//   passport.authenticate('bearer', {session: false}),
+//   (req, res) => res.json(req.user.apiRepr())
+// );
 
 app.get('/api/speakez',
   passport.authenticate('jwt', {session: false}),
@@ -153,17 +153,17 @@ app.post('/api/speakez',
     .catch(err => console.log(err));
   }
 );
-app.put('/api/score',
-  passport.authenticate('bearer', {session: false}),
-  (req, res) => {
-    User.findByIdAndUpdate(req.body.id, {score: req.body.score}, {new: true})
-    .exec()
-    .then(user => {
-      res.json(user.apiRepr());
-    })
-    .catch(err => console.log(err));
-  }
-);
+// app.put('/api/score',
+//   passport.authenticate('bearer', {session: false}),
+//   (req, res) => {
+//     User.findByIdAndUpdate(req.body.id, {score: req.body.score}, {new: true})
+//     .exec()
+//     .then(user => {
+//       res.json(user.apiRepr());
+//     })
+//     .catch(err => console.log(err));
+//   }
+// );
 
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
