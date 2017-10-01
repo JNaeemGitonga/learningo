@@ -5,13 +5,11 @@ const passport = require('passport');
 // const acl = require('acl');
 const {BasicStrategy} = require('passport-http');
 const {Strategy: JwtStrategy, ExtractJwt} = require('passport-jwt');
-const {JWT_SECRET} = require('../secret')
+// const {JWT_SECRET} = require('../secret')
 
 const {User} = require('../models');
 const {DATABASE_URL} = require('../config');
 
-// const mongoBackend = new acl.mongoBackend(DATABASE_URL, 'acl_');
-// acl = new acl(new acl.mongodbBackend(DATABASE_URL, 'acl_'));
 
 const basicStrategy = new BasicStrategy(
 (username, password, done) => {
@@ -47,7 +45,7 @@ const basicStrategy = new BasicStrategy(
 });
 
 const jwtStrategy = new JwtStrategy({
-    secretOrKey: JWT_SECRET,
+    secretOrKey: config.JWT_SECRET,
     jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('Bearer'),
     algorithms: ['HS256']
   },
