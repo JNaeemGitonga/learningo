@@ -3,10 +3,12 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const {User} = require('../models')
 const config = require('../config');
-const {JWT_SECRET} = require('../secret')
+// const {JWT_SECRET} = require('../secret')
 const bcrypt = require('bcryptjs');
+
+
 const createAuthToken = user => {
-	return jwt.sign({user}, JWT_SECRET, {
+	return jwt.sign({user}, config.JWT_SECRET, {
 		subject: user.username,
 		expiresIn: config.JWT_EXPIRY, 
 		algorithm: 'HS256'
