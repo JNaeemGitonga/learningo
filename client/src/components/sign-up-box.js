@@ -65,7 +65,6 @@ export class SignUpBox extends React.Component {
                     }
                     return x.dispatch(createUser(y.email,x.password,y.firstName,y.lastName))
                 }}>
-                <fieldset>
                     <div className="email pure-control-group">
                         <label  htmlFor="email">Email </label>
                         <input className='form' id="email" type="text" placeholder="abc@company.com"
@@ -91,7 +90,6 @@ export class SignUpBox extends React.Component {
                        
                         <button type="submit" className="btn pure-button-primary">Submit</button>
                     </div>
-                </fieldset>
             </form>
             <div className="modal" style={modalStyle}>
                 <span><a href="#" style={closeStyle} className="close" onClick={() => this.setState({display:'none'})}>x</a></span>
