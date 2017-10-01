@@ -114,10 +114,10 @@ app.use('/api/learningo/auth', authRouter);
 //   }
 // );
 
-// app.get('/api/auth/logout', (req, res) => { 
-//   res.clearCookie('accessToken');
-//   res.redirect('/');
-// });
+app.get('/api/auth/logout', (req, res) => { 
+  res.clearCookie('accessToken');
+  res.redirect('/');
+});
 
 // app.get('/api/me',
 //   passport.authenticate('bearer', {session: false}),
