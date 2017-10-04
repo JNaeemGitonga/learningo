@@ -3,7 +3,6 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const {User} = require('../models')
 const config = require('../config');
-// const {JWT_SECRET} = require('../secret')
 const bcrypt = require('bcryptjs');
 
 

@@ -22,13 +22,14 @@ export class DashBoard extends React.Component {
                 <Pronunciations />
                 <div className='welcome-container'>
                 <h1 className='greetings'>Peace Welcome Salaam Shalom Bienvenidos 你好</h1>
+                <h2 className='what-to-do'>What to do...</h2>
                     <ul>
-                        <li>On the next page you will find a drop down box
+                        <li className='instructions'>On the next page you will find a drop down box
                             with a list of subjects</li>
-                        <li> Pick form the one you want and begin</li>
-                        <li> you will enter your answer choices and press 
+                        <li className='instructions'> Pick form the one you want and begin</li>
+                        <li className='instructions'> you will enter your answer choices and press 
                             submit to answer</li>
-                        <li>Hints and special characters are available if needed!</li>
+                        <li className='instructions'>Hints and special characters are available if needed!</li>
                     </ul>
                      <p className='ready-quote'>ready to begin learning?</p>
                      <Link to={`/${this.props.userId}/questions`}><p className='begin'>CLICK HERE</p></Link>

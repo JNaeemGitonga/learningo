@@ -15,3 +15,12 @@
     margin:auto;
     text-align: center;
 }
+
+.what-to-do {
+    font-family: 'Encode Sans Expanded', sans-serif;
+    font-size:1.4em;
+}
+.instructions {
+    font-size:1.3em;
+    font-family: 'Encode Sans Expanded', sans-serif;
+}

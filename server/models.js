@@ -37,7 +37,9 @@ userSchema.methods.apiRepr = function() {
     googleId: this.googleId,
     name: this.name,
     username: this.username,
-    password:{type:String}
+    password:this.password,
+    firstName:this.firstName,
+    lastName:this.lastName
   };
 };
 

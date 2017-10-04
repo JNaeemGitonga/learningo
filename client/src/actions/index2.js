@@ -50,10 +50,16 @@ export const enterName = name => ({
     name 
 })
 
+export const SET_USERID = 'SET_USERID';
+export const setUserId = userId => ({
+    type:SET_USERID,
+        userId
+})
+
 export const login = (username,password) => dispatch => {
 
     let obj = {
-        username:username ,
+        username:username,
         password:password
     }
 
@@ -73,11 +79,7 @@ export const login = (username,password) => dispatch => {
         .catch(err => console.log('error from login', err))
 }
 
-export const SET_USERID = 'SET_USERID';
-export const setUserId = userId => ({
-    type:SET_USERID,
-        userId
-})
+
 
 export const USER_LOGOUT = 'USER_LOGOUT';
 export const userLogout = () => ({
@@ -111,7 +113,6 @@ export const createUser = (username, password, fName, lName,phone) => dispatch =
                 .then(res => {
                     dispatch(setJWT(res.body))
                     userId = res.body.user._id;
-                    console.log(res.body)
                     dispatch(setUserId(res.body.user._id))
                 })
                .then(() => dispatch(push(`/home/${userId}`)))

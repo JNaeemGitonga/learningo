@@ -7,6 +7,9 @@
 button{
     background:none;
 }
+.demo {
+    margin-bottom:80px;
+}
 .about-us {
     margin:auto;
     text-align:center;
@@ -146,13 +149,7 @@ label {
 
     }
 
-
     .password1 {
         margin:auto;
     }
 }
-/* @media(max-width:620px) {
-    .cpassword {
-        padding-left:50px
-    }
-} */

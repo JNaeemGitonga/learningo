@@ -36,7 +36,7 @@ export class LoginBox extends React.Component {
                
                 <button type="submit" className="btn btn-default">Submit</button>
                 <Link to='/signup'><p className='link' >Sign Up</p></Link>
-                <p className='link' onClick={() => {
+                <p className='link demo' onClick={() => {
                     this.props.dispatch(login('demo@dummy.com','123445asdfk'))    
                 }}>Demo Acct</p>
               </form>

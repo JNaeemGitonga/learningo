@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Route} from 'react-router-dom';
-import {ConnectedRouter as Router} from 'react-router-redux'
+import {ConnectedRouter as Router} from 'react-router-redux';
 import QuestionPage from './question-page';
 import LoginPage from './login-page';
 import DashBoard from './dashboard';

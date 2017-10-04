@@ -2,11 +2,10 @@
 require('dotenv').config();
 
 const passport = require('passport');
-// const acl = require('acl');
 const {BasicStrategy} = require('passport-http');
 const {Strategy: JwtStrategy, ExtractJwt} = require('passport-jwt');
 // const {JWT_SECRET} = require('../secret')
-
+// const config = require('../config');
 const {User} = require('../models');
 const {DATABASE_URL,JWT_SECRET} = require('../config');
 
@@ -45,12 +44,11 @@ const basicStrategy = new BasicStrategy(
 });
 
 const jwtStrategy = new JwtStrategy({
-    secretOrKey: JWT_SECRET,
+    secretOrKey:  JWT_SECRET,
     jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('Bearer'),
     algorithms: ['HS256']
   },
   (payload, done) => {
-	  // console.log("this is pAYLOAD", payload.user)
     done(null, payload.user)
   }
 );

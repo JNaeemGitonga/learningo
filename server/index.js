@@ -12,21 +12,7 @@ const {User, Question} = require('./models');
 const {DATABASE_URL, PORT,JWT_SECRET} = require('./config');
 const {router: usersRouter} = require('./users');
 const {router: authRouter, basicStrategy, jwtStrategy} = require('./auth');
-// const {JWT_SECRET} = require('./secret');
 mongoose.Promise = global.Promise;
-
-
-// let secret = {
-//   CLIENT_ID: process.env.CLIENT_ID,
-//   CLIENT_SECRET: process.env.CLIENT_SECRET
-// };
-
-// if(process.env.NODE_ENV !== 'production') {
-//   secret = require('./secret');
-// }
-
-
-
 
 app.use(bodyParser.json());
 passport.serializeUser(function(user, done) {
@@ -178,7 +164,7 @@ let server;
 function runServer(databaseUrl=DATABASE_URL, port=3001) {
   console.log('URL is', DATABASE_URL, 'Port is', port);
   return new Promise((resolve, reject) => {
-    mongoose.connect(databaseUrl, {useMongoClient: true} ,err => {
+    mongoose.connect(databaseUrl, {useMongoClient: true}, err => {
       if (err) {
         console.log(err)
         return reject(err);

@@ -11,7 +11,6 @@ export class PasswordBoxes extends React.Component {
     
     validate(dog) {
         if (dog === this.props.password) {
-            console.log()
             this.props.dispatch(valid(true,false))
         } else {
             this.props.dispatch(valid(false,true))
