@@ -8,9 +8,7 @@ const {User} = require('../models');
 const router = express.Router();
 
 router.use(bodyParser.json())
-// router.use(bodyParser.urlencoded())
 
-// Post to register a new user
 router.post('/signup', (req, res) => {
  
   const requiredFields = ['username','password'];
