@@ -15,7 +15,7 @@ const {router: authRouter, basicStrategy, jwtStrategy} = require('./auth');
 mongoose.Promise = global.Promise;
 
 app.use(bodyParser.json());
-router.use(bodyParser.urlencoded())	
+app.use(bodyParser.urlencoded())	
  
 passport.serializeUser(function(user, done) {
   done(null, user);
