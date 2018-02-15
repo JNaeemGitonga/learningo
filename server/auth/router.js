@@ -4,10 +4,10 @@ const jwt = require('jsonwebtoken');
 const {User} = require('../models')
 const config = require('../config');
 const bcrypt = require('bcryptjs');
-
+const {JWT_SECRET} = require('../config');
 
 const createAuthToken = user => {
-	return jwt.sign({user}, config.JWT_SECRET, {
+	return jwt.sign({user}, JWT_SECRET, {
 		subject: user.username,
 		expiresIn: config.JWT_EXPIRY, 
 		algorithm: 'HS256'

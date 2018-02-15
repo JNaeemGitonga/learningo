@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import Logo from './logo';
 import {Link} from 'react-router-dom';
 import {getLessons, logon, pickLesson} from '../actions';
+import {displayError} from '../actions/index2';
+import {push} from 'react-router-redux';
 import {setJWT} from '../actions/index2'
 import './question-page.css';
 import './float-grid.css';
@@ -22,8 +24,13 @@ class QuestionPage extends React.Component {
 
     render() {
         let lessonPlan;
-        if (this.props.questions) {
-            lessonPlan = this.props.questions.map((lesson,index) =>  <option onSelect={(e) => console.log('loook',e.target.value)}key={lesson.language} 
+        const {dispatch,lesson,jwt,questions,userId,style} = this.props;
+        let display = {
+            display:style,
+            color:'red'
+        }
+        if ( questions) {
+            lessonPlan = questions.map((lesson,index) =>  <option onSelect={(e) => console.log('loook',e.target.value)}key={lesson.language} 
                 value={index} className='lesson' style={{ color:'black'}}>{lesson.language}</option>)
         }
 
@@ -31,7 +38,7 @@ class QuestionPage extends React.Component {
             <div id='question-container' >
                  <div className='logout-box'> 
                     <Link to='/'><button className='logout-button' onClick={()=>{
-                        this.props.dispatch(setJWT(null))    
+                        dispatch(setJWT(null))    
                     }}>Logout</button></Link>
                 </div>
                 <Logo />
@@ -40,13 +47,26 @@ class QuestionPage extends React.Component {
                     <h3 className='omega' >What would you like to practice today?</h3>
                     <div className='inner-container row' style={{display:'block'}}>
                         <select className='select-box' style={{color:'black'}}onChange={(e) =>{
-                            this.props.dispatch(pickLesson(e.target.value))}}>
+                            dispatch(pickLesson(e.target.value))}}>
                             <option style={{listStyle:'none', color:'black'}} value="''">Choose Lesson Below</option>
                             {lessonPlan}
                         </select>
-                        <Link to={`/${this.props.userId}/lesson`} ><button className='start-button' >Start</button></Link>
+                        <button className='start-button' onClick={() => {
+                            if (lesson && lesson !== '') {
+                                dispatch(push(`/${userId}/lesson`))
+                            }
+                            else {
+                                dispatch(displayError())
+                                setTimeout(function(){
+                                    dispatch(displayError())
+                                },2500)
+                                console.log('pick a lesson')
+                            }   
+
+                        }}>Start</button>
                         
                     </div>    
+                    <p className='pick-lesson-error' style={display}>You must pick a lesson before starting</p>
                 </div>
             </div>
         );
@@ -56,7 +76,9 @@ const mapStateToProps = (state) => {
     return {
         userId:state.twoReducer.userId,
         jwt:state.learnReducer.jwt,
-        questions:state.learnReducer.questions
+        questions:state.learnReducer.questions,
+        lesson:state.learnReducer.lesson,
+        style:state.twoReducer.style
 
 
     }

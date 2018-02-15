@@ -10,7 +10,8 @@ export const state2 = {
     errorVisible:false,
     errorMessage:'Passwords do not match.',
     userId:null,
-    questions:null
+    questions:null,
+    style:'none'
 
 }
 
@@ -49,6 +50,17 @@ const reducerTwo = (state = state2, action) => {
     case a.USER_LOGOUT:
         console.log('from reducer',state)
         return state = null
+    case a.DISPLAY_ERROR: 
+        if(state.style === 'none'){
+            return Object.assign({}, state, {
+                style:'block'
+            })
+        }
+        else {
+            return Object.assign({}, state, {
+                style:'none'
+            })
+        }
     default:
         return state
     }

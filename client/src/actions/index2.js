@@ -13,6 +13,11 @@ export const setPassword = password => ({
     password
 })
 
+export const DISPLAY_ERROR = 'DISPLAY_ERROR';
+export const displayError = () => ({
+    type:DISPLAY_ERROR
+})
+
 export const SET_CONFIRM_PASSWORD = 'SET_CONFIRM_PASSWORD';
 export const setConfirmPass = confirmPass => ({
     type:SET_CONFIRM_PASSWORD,
@@ -56,6 +61,11 @@ export const setUserId = userId => ({
         userId
 })
 
+export const USER_LOGOUT = 'USER_LOGOUT';
+export const userLogout = () => ({
+    type:USER_LOGOUT
+})
+
 export const login = (username,password) => dispatch => {
 
     let obj = {
@@ -78,13 +88,6 @@ export const login = (username,password) => dispatch => {
         .then(() => dispatch(push(`/home/${userId}`)))  
         .catch(err => console.log('error from login', err))
 }
-
-
-
-export const USER_LOGOUT = 'USER_LOGOUT';
-export const userLogout = () => ({
-    type:USER_LOGOUT
-})
 
 export const createUser = (username, password, fName, lName,phone) => dispatch => {
     let newUser = {
