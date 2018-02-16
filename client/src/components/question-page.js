@@ -60,9 +60,7 @@ class QuestionPage extends React.Component {
                                 setTimeout(function(){
                                     dispatch(displayError())
                                 },2500)
-                                console.log('pick a lesson')
                             }   
-
                         }}>Start</button>
                         
                     </div>    
